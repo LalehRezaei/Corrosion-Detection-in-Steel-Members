@@ -10,7 +10,7 @@ import os
 # Primary Setting
 st.set_page_config(page_title="Corrosion Detection", page_icon="🔧")
 
-# Uploading the Pre-trained Model
+#Loading the Pre-trained Model
 model = EfficientNetB0(weights='imagenet')  
 
 # Prediction Function 
