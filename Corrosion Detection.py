@@ -34,10 +34,10 @@ def get_class_prediction(prediction):
 
 #ُStreamlit User Interface 
 st.title('Corrosion Detection Web App')
-st.write("This App is Designed for the Detection and Quantification of Steel Corrosion. Please Upload Steel Member Images to Detect Corrosion Severity")
+st.write("This Web Application is Designed to Detect and Assess Corrosion in Steel Members. Please Upload One or More Images.")
 
 #Uploading an Image 
-uploaded_files = st.file_uploader("image", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
+uploaded_files = st.file_uploader("Choose Steel Member Images", type=["jpg", "png", "jpeg"], accept_multiple_files=True)
 
 #Folder for Saving Files 
 temp_folder = './temp/'
@@ -58,8 +58,8 @@ if uploaded_files:
         #Decoding and Extracting Class and Severity 
         class_label, class_name, class_probability = get_class_prediction(prediction)
 
-        #Displaying tha Main Image and Prediction Result 
-        st.image(uploaded_file, caption="Main Image", use_column_width=True)
+        #Displaying tha Original Image and Prediction Result 
+        st.image(uploaded_file, caption="Original Image", use_column_width=True)
         st.write(f"Predicted Class: {class_name}")
         st.write(f"Prediction Probability: {class_probability:.2f}")
 
@@ -78,8 +78,8 @@ if uploaded_files:
                 cv2.drawContours(img_opened, [contour], -1, (0, 255, 0), 3)
 
         #Displaying the Processed Image 
-        st.image(img_opened, caption="Processed Image (Corroded Areas are Detected)", use_column_width=True)
+        st.image(img_opened, caption="Processed Image (Corroded Areas are Highlighted)", use_column_width=True)
 
 #Running Application        
 if __name__ == "__main__":
-    st.write("Web App is Running...")
+    st.write("The Web Application is Running...")
