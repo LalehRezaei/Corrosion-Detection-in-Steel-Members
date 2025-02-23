@@ -4,7 +4,6 @@ from tensorflow.keras.applications import EfficientNetB0
 from tensorflow.keras.preprocessing import image
 import numpy as np
 import cv2
-import matplotlib.pyplot as plt
 import os
 
 # Primary Setting
@@ -15,13 +14,13 @@ model = EfficientNetB0(weights='imagenet')
 
 # Prediction Function 
 def predict_image(img_path):
-    # Uploading and Processing Images 
+    # Load and preprocess the image
     img = image.load_img(img_path, target_size=(224, 224))  #Resizing the Image 
     img_array = image.img_to_array(img)  # Changing Image to an Array 
     img_array = np.expand_dims(img_array, axis=0)  #Adding Dim to an Array 
     img_array = tf.keras.applications.efficientnet.preprocess_input(img_array)  #Processing Input 
 
-    #Prediction 
+    #Make Prediction 
     prediction = model.predict(img_array)
     
     return prediction
@@ -78,7 +77,7 @@ if uploaded_files:
                 cv2.drawContours(img_opened, [contour], -1, (0, 255, 0), 3)
 
         #Displaying the Processed Image 
-        st.image(img_opened, caption="Processed Image (Corroded Areas are Highlighted)", use_column_width=True)
+        st.image(img_opened, caption="Processed Image (Corroded Areas Highlighted)", use_column_width=True)
 
 #Running Application        
 if __name__ == "__main__":
