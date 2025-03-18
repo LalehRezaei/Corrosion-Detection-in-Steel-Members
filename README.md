@@ -2,7 +2,7 @@
  
 This code creates a Streamlit web application for detecting corrosion in steel members using a pre-trained EfficientNetB0 model. The application processes uploaded images of steel members, identifies the corrosion regions, and classifies the images into predefined categories, providing the user with the classification results and visual indications of the corroded areas. 
 
-# How to Use the Web Application:
+## How to Use the Web Application:
 1.	Download the content of the repository to the local machine.
 2.	Open Command Prompt (cmd).
 3.	Install the required packages. Type: pip install streamlit tensorflow numpy opencv-python 
