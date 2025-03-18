@@ -10,4 +10,5 @@ This code creates a Streamlit web application for detecting corrosion in steel m
 5.	Type: streamlit run “Corrosion Detection.py”
 6.	The application opens in a web browser tab.
 7.	Use the “Browse files” button to choose the steel member image(s).  
+ 
 
