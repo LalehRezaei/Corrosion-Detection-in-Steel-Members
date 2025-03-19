@@ -57,13 +57,13 @@ if uploaded_files:
         #Decoding and Extracting Class and Severity 
         class_label, class_name, class_probability = get_class_prediction(prediction)
 
-        #Displaying tha Original Image and Prediction Result 
-        st.image(uploaded_file, caption="Original Image", use_column_width=True)
+        #Displaying the Original Image and Prediction Result 
+        st.image(uploaded_file, caption="Original Image", use_container_width=True)
         st.write(f"Predicted Class: {class_name}")
         st.write(f"Prediction Probability: {class_probability:.2f}")
 
         #Displaying Image using Image Processing Techniques 
-        st.write("Displeay of Corroded Areas (Using Image Processing Techniqes)")
+        st.write("Display of Corroded Areas (Using Image Processing Techniqes)")
 
         #Thresholding for Detectiong Corroded Areas 
         img_opened = cv2.imread(img_path)
@@ -77,7 +77,7 @@ if uploaded_files:
                 cv2.drawContours(img_opened, [contour], -1, (0, 255, 0), 3)
 
         #Displaying the Processed Image 
-        st.image(img_opened, caption="Processed Image (Corroded Areas Highlighted)", use_column_width=True)
+        st.image(img_opened, caption="Processed Image (Corroded Areas Highlighted)", use_container_width=True)
 
 #Running Application        
 if __name__ == "__main__":
